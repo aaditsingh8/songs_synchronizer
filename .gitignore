@@ -1,0 +1,6 @@
+.env
+browser.json
+.cache
+venv/
+__pycache__/
+*.pyc
