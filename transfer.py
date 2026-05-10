@@ -64,8 +64,14 @@ for i, song in enumerate(liked_songs):
 
 # --- EXPORT REPORT ---
 df = pd.DataFrame(log)
-df.to_csv("transfer_report.csv", index=False)
+base = "reports/transfer_report"
+report_path = f"{base}.csv"
+counter = 1
+while os.path.exists(report_path):
+    report_path = f"{base}_{counter}.csv"
+    counter += 1
+df.to_csv(report_path, index=False)
 
 success = df[df['status'] == 'success'].shape[0]
 print(f"\nDone! {success}/{len(liked_songs)} songs transferred.")
-print("Report saved to transfer_report.csv")
+print(f"Report saved to {report_path}")

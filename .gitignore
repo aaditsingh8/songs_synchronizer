@@ -4,3 +4,4 @@ browser.json
 venv/
 __pycache__/
 *.pyc
+reports/
